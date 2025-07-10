@@ -1,0 +1,51 @@
+{
+    "post": {
+      "summary": "Upload Attachment",
+      "tags": ["Attachment"],
+      "security": [
+        {
+          "bearerAuth": []
+        }
+      ],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "multipart/form-data": {
+            "schema": {
+              "type": "object",
+              "required": ["file"],
+              "properties": {
+                "file": {
+                  "type": "string",
+                  "format": "binary",
+                  "description": "File to be uploaded"
+                }
+              }
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Success",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../../components/schemas/Attachment.json"
+              }
+            }
+          }
+        },
+        "422": {
+          "description": "Validation Error",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../../components/schemas/ValidationError.json"
+              }
+            }
+          }
+        }
+      }
+    }
+  }

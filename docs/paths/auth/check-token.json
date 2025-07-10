@@ -1,0 +1,34 @@
+{
+    "get": {
+      "summary": "Check Token",
+      "tags": ["Auth"],
+      "security": [
+        {
+          "bearerAuth": []
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Success",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../../components/schemas/User.json"
+              }
+            }
+          }
+        },
+        "401": {
+          "description": "Unauthorized - Invalid Token",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../../components/schemas/Error.json"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "example": 1
+    },
+    "fullName": {
+      "type": "string",
+      "example": "John Doe"
+    },
+    "avatar": {
+      "type": "object",
+      "example": {
+        "name": "avatar.png",
+        "size": 1500,
+        "type": "image/png",
+        "url": "https://google.com/avatar.png"
+      }
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "example": "john@example.com"
+    },
+    "phone": {
+      "type": "string",
+      "example": "6281234567890"
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "example": "super-admin"
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2025-07-06T14:30:00.000Z"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2025-07-06T14:30:00.000Z"
+    }
+  }
+}

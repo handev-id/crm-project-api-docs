@@ -1,0 +1,162 @@
+{
+  "get": {
+    "summary": "List Users",
+    "tags": ["User"],
+    "security": [{ "bearerAuth": [] }],
+    "parameters": [
+      {
+        "name": "page",
+        "in": "query",
+        "schema": { "type": "integer", "default": 1 },
+        "required": false,
+        "description": "Page number for pagination"
+      },
+      {
+        "name": "limit",
+        "in": "query",
+        "schema": { "type": "integer", "default": 50 },
+        "description": "Number of results per page"
+      },
+      {
+        "name": "search",
+        "in": "query",
+        "schema": { "type": "string" },
+        "description": "Search keyword (name, email, or phone)"
+      },
+      {
+        "name": "role",
+        "in": "query",
+        "schema": { "type": "integer" },
+        "description": "Filter users by role ID"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Paginated list of users",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "meta": {
+                  "type": "object",
+                  "properties": {
+                    "total": { "type": "integer", "example": 1 },
+                    "perPage": { "type": "integer", "example": 50 },
+                    "currentPage": { "type": "integer", "example": 1 },
+                    "lastPage": { "type": "integer", "example": 1 },
+                    "firstPage": { "type": "integer", "example": 1 },
+                    "firstPageUrl": { "type": "string", "example": "/?page=1" },
+                    "lastPageUrl": { "type": "string", "example": "/?page=1" },
+                    "nextPageUrl": { "type": ["string", "null"], "example": null },
+                    "previousPageUrl": { "type": ["string", "null"], "example": null }
+                  }
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "../../components/schemas/User.json"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "post": {
+    "summary": "Create User",
+    "tags": ["User"],
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "required": ["fullName", "email", "roles", "password"],
+            "properties": {
+              "fullName": {
+                "type": "string",
+                "example": "Jane Doe"
+              },
+              "email": {
+                "type": "string",
+                "format": "email",
+                "example": "jane@example.com"
+              },
+              "phone": {
+                "type": "string",
+                "example": "08123456789"
+              },
+              "avatar": {
+                "type": "object",
+                "required": ["url", "name", "size", "type"],
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "format": "uri",
+                    "example": "https://cdn.example.com/uploads/avatar123.webp"
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "avatar123.webp"
+                  },
+                  "size": {
+                    "type": "number",
+                    "example": 204800
+                  },
+                  "type": {
+                    "type": "string",
+                    "example": "image/webp"
+                  }
+                }
+              },
+              "roles": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "example": 3
+                },
+                "minItems": 1
+              },
+              "password": {
+                "type": "string",
+                "minLength": 6,
+                "example": "securePassword123"
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "User created successfully",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../components/schemas/User.json"
+            }
+          }
+        }
+      },
+      "422": {
+        "description": "Validation Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../components/schemas/ValidationError.json"
+            }
+          }
+        }
+      }
+    }
+  }
+}

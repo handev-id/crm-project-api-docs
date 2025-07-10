@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+      "token": {
+        "type": "string",
+        "example": "oat_MQ.N0RFU0FrbThtbkVtWWpiX3lac..."
+      },
+      "expiresAt": {
+        "type": "string",
+        "example": "2025-08-05T20:52:26.949Z"
+      }
+    }
+  }
+  

@@ -1,0 +1,39 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Omnichannel CRM API",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/api/v1.0/auth/register": {
+      "$ref": "/docs/paths/auth/register.json"
+    },
+    "/api/v1.0/auth/login": {
+      "$ref": "/docs/paths/auth/login.json"
+    },
+    "/api/v1.0/auth/check-token": {
+      "$ref": "/docs/paths/auth/check-token.json"
+    },
+    "/api/v1.0/auth/logout": {
+      "$ref": "/docs/paths/auth/logout.json"
+    },
+    "/api/v1.0/user": {
+      "$ref": "/docs/paths/user/index.json"
+    },
+    "/api/v1.0/user/{id}": {
+      "$ref": "/docs/paths/user/id.json"
+    },
+    "/api/v1.0/attachment": {
+      "$ref": "/docs/paths/attachment/index.json"
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "post": {
+    "summary": "Register",
+    "tags": ["Auth"],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "required": ["fullName", "email", "password", "passwordConfirmation"],
+            "properties": {
+              "fullName": { "type": "string", "example": "John Doe" },
+              "email": { "type": "string", "format": "email", "example": "john@example.com" },
+              "phone": { "type": "string", "example": "0838374957" },
+              "password": { "type": "string", "minLength": 6, "example": "securepassword" },
+              "passwordConfirmation": { "type": "string", "example": "securepassword" }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "Success",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../components/schemas/User.json"
+            }
+          }
+        }
+      },
+      "422": {
+        "description": "Validation Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../components/schemas/ValidationError.json"
+            }
+          }
+        }
+      }
+    }
+  }
+}

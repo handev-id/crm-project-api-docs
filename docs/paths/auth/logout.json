@@ -1,0 +1,40 @@
+{
+    "delete": {
+      "summary": "Logout",
+      "tags": ["Auth"],
+      "security": [
+        {
+          "bearerAuth": []
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Berhasil logout",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string",
+                    "example": "success"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "401": {
+          "description": "Unauthorized Access",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "../../components/schemas/Error.json"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

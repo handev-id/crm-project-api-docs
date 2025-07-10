@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "example": "avatar.png"
+    },
+    "size": {
+      "type": "number",
+      "example": 15500
+    },
+    "type": {
+      "type": "string",
+      "example": "image/png"
+    },
+    "url": {
+      "type": "string",
+      "example": "https://google.com/avatar.png"
+    }
+  }
+}
