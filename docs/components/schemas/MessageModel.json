@@ -1,0 +1,84 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "example": 1
+    },
+    "text": {
+      "type": "string",
+      "nullable": true,
+      "example": "Hello, how are you?"
+    },
+    "attachment": {
+      "example": null
+    },
+    "status": {
+      "type": "string",
+      "enum": ["sent", "delivered", "read", "unread"],
+      "example": "sent"
+    },
+    "senderId": {
+      "type": "integer",
+      "example": 2
+    },
+    "sender": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "example": 2
+        },
+        "fullName": {
+          "type": "string",
+          "example": "John Doe"
+        },
+        "avatar": {
+          "$ref": "./Attachment.json"
+        }
+      }
+    },
+    "channel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "example": 1
+        },
+        "name": {
+          "type": "string",
+          "example": "whatsapp"
+        },
+        "logo": {
+          "$ref": "./Attachment.json"
+        }
+      }
+    },
+    "senderType": {
+      "type": "string",
+      "enum": ["contact", "user", "ai"],
+      "example": "user"
+    },
+    "conversationId": {
+      "type": "integer",
+      "example": 10
+    },
+    "webhookMessageId": {
+      "type": "string",
+      "example": "1234567890"
+    },
+    "webhookMessageReplyId": {
+      "example": null
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2020-01-01T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2020-01-01T00:00:00.000Z"
+    }
+  }
+}

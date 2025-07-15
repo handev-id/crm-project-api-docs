@@ -1,0 +1,45 @@
+{
+  "post": {
+    "summary": "Create Note",
+    "tags": ["Note"],
+    "security": [{ "bearerAuth": [] }],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "text": {
+                "type": "string",
+                "example": "Noteed....."
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "Note created successfully",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../components/schemas/Message.json"
+            }
+          }
+        }
+      },
+      "422": {
+        "description": "Validation Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../components/schemas/ValidationError.json"
+            }
+          }
+        }
+      }
+    }
+  }
+}

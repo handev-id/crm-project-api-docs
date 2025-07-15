@@ -1,0 +1,49 @@
+{
+  "post": {
+    "summary": "Merge Contact",
+    "tags": ["Merge Contact"],
+    "security": [{ "bearerAuth": [] }],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "fromContactId": {
+                "type": "integer",
+                "example": 1
+              },
+              "toContactId": {
+                "type": "integer",
+                "example": 2
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "Merge Contact successfully",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../components/schemas/Message.json"
+            }
+          }
+        }
+      },
+      "422": {
+        "description": "Validation Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../components/schemas/ValidationError.json"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "properties": {
+    "total": { "type": "integer", "example": 1 },
+    "perPage": { "type": "integer", "example": 50 },
+    "currentPage": { "type": "integer", "example": 1 },
+    "lastPage": { "type": "integer", "example": 1 },
+    "firstPage": { "type": "integer", "example": 1 },
+    "firstPageUrl": { "type": "string", "example": "/?page=1" },
+    "lastPageUrl": { "type": "string", "example": "/?page=1" },
+    "nextPageUrl": { "type": ["string", "null"], "example": null },
+    "previousPageUrl": { "type": ["string", "null"], "example": null }
+  }
+}

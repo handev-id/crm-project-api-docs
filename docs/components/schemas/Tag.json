@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "example": 1
+    },
+    "name": {
+      "type": "string",
+      "example": "Follow Up"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2020-01-01T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2020-01-01T00:00:00.000Z"
+    }
+  }
+}

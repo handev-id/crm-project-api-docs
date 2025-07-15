@@ -1,0 +1,56 @@
+{
+  "get": {
+    "summary": "List Conversations",
+    "tags": ["Conversation"],
+    "security": [{ "bearerAuth": [] }],
+    "parameters": [
+      {
+        "name": "page",
+        "in": "query",
+        "schema": { "type": "integer", "default": 1 },
+        "required": false,
+        "description": "Page number for pagination"
+      },
+      {
+        "name": "limit",
+        "in": "query",
+        "schema": { "type": "integer", "default": 50 },
+        "description": "Number of results per page"
+      },
+      {
+        "name": "search",
+        "in": "query",
+        "schema": { "type": "string" },
+        "description": "Search keyword (name, message, tag)"
+      },
+      {
+        "name": "tag",
+        "in": "query",
+        "schema": { "type": "string" },
+        "description": "Filter conversations by tag"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "list of Conversations",
+        "content": {
+          "application/json": {
+            "schema": {
+              "properties": {
+                "meta": {
+                  "$ref": "../../components/schemas/Meta.json"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "../../components/schemas/Conversation.json"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

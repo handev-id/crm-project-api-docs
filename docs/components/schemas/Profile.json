@@ -1,0 +1,56 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "example": 1
+    },
+    "externalId": {
+      "type": "string",
+      "example": "ext-123456"
+    },
+    "contactId": {
+      "type": "integer",
+      "example": 10
+    },
+    "contact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "example": 10
+        },
+        "firstName": {
+          "type": "string",
+          "example": "Jane"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "Doe"
+        },
+        "avatar": {
+          "$ref": "./Attachment.json"
+        }
+      },
+      "example": {
+        "id": 10,
+        "firstName": "Jane",
+        "lastName": "Doe"
+      }
+    },
+    "channelId": {
+      "type": "integer",
+      "example": 2
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2025-07-15T10:00:00Z"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2025-07-15T12:00:00Z"
+    }
+  }
+}

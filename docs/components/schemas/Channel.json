@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "example": 1
+    },
+    "name": {
+      "type": "string",
+      "example": "whatsapp"
+    },
+    "logo": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "whatsapp.png"
+        },
+        "size": {
+          "type": "integer",
+          "example": 1500
+        },
+        "type": {
+          "type": "string",
+          "example": "image/png"
+        },
+        "url": {
+          "type": "string",
+          "example": "https://google.com/whatsapp.png"
+        }
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-01-01T00:00:00.000Z"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2023-01-01T00:00:00.000Z"
+    }
+  }
+}

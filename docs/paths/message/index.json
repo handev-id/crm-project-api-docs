@@ -1,0 +1,30 @@
+{
+  "get": {
+    "summary": "List Messages",
+    "tags": ["Message"],
+    "security": [{ "bearerAuth": [] }],
+    "responses": {
+      "200": {
+        "description": "List of messages",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "meta": {
+                  "$ref": "../../components/schemas/Meta.json"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "../../components/schemas/MessageModel.json"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

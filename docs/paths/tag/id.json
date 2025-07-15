@@ -1,0 +1,91 @@
+{
+  "put": {
+    "summary": "Update Tag",
+    "tags": ["Tag"],
+    "security": [{ "bearerAuth": [] }],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "integer",
+          "example": 1
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "$ref": "../../components/schemas/Tag.json"
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "Tag updated successfully",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../components/schemas/Tag.json"
+            }
+          }
+        }
+      },
+      "422": {
+        "description": "Validation Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../components/schemas/ValidationError.json"
+            }
+          }
+        }
+      },
+      "404": {
+        "description": "Not Found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../components/schemas/Message.json"
+            }
+          }
+        }
+      }
+    }
+  },
+  "delete": {
+    "summary": "Delete Tag",
+    "tags": ["Tag"],
+    "security": [{ "bearerAuth": [] }],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "integer",
+          "example": 1
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "Tag deleted successfully"
+      },
+      "404": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../components/schemas/Message.json"
+            }
+          }
+        }
+      }
+    }
+  }
+}

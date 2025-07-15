@@ -1,0 +1,49 @@
+{
+  "post": {
+    "summary": "Assign Agent to Conversation",
+    "tags": ["Conversation"],
+    "security": [{ "bearerAuth": [] }],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "userId": {
+                "type": "integer",
+                "example": 1
+              },
+              "conversationId": {
+                "type": "integer",
+                "example": 2
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "Assign agent to conversation successfully",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../components/schemas/Message.json"
+            }
+          }
+        }
+      },
+      "422": {
+        "description": "Validation Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../components/schemas/ValidationError.json"
+            }
+          }
+        }
+      }
+    }
+  }
+}

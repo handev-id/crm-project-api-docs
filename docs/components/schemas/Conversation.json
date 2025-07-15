@@ -1,0 +1,145 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "example": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": ["unassigned", "assigned", "resolved"],
+      "example": "assigned"
+    },
+    "contact": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "example": "John"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "Doe"
+        },
+        "avatar": {
+          "$ref": "./Attachment.json"
+        }
+      }
+    },
+    "agentId": {
+      "type": "integer",
+      "example": 1
+    },
+    "agent": {
+      "$ref": "./User.json"
+    },
+    "channelId": {
+      "type": "integer",
+      "example": 2
+    },
+    "channel": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "example": 2
+        },
+        "name": {
+          "type": "string",
+          "example": "whatsapp"
+        },
+        "logo": {
+          "$ref": "./Attachment.json"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2025-07-15T10:00:00Z"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2025-07-15T10:00:00Z"
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "example": "Follow Up"
+      }
+    },
+    "notes": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string",
+          "example": "user note 123"
+        }
+      }
+    },
+    "unreadCount": {
+      "type": "integer",
+      "example": 5
+    },
+    "lastMessage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "example": 1
+        },
+        "text": {
+          "type": "string",
+          "example": "Hello"
+        },
+        "attachment": {
+          "$ref": "./Attachment.json"
+        },
+        "sender": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "example": 1
+            },
+            "fullName": {
+              "type": "string",
+              "example": "John Doe"
+            }
+          }
+        },
+        "senderType": {
+          "type": "string",
+          "example": "contact"
+        }
+      }
+    },
+    "resolvedAt": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2025-07-15T10:00:00Z"
+    },
+    "lastActivity": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2025-07-15T10:00:00Z"
+    },
+    "lastSeen": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2025-07-15T12:00:00Z"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2025-07-15T10:00:00Z"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "example": "2025-07-15T12:00:00Z"
+    }
+  }
+}

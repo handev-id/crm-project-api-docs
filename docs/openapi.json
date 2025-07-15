@@ -25,6 +25,36 @@
     },
     "/api/v1.0/attachment": {
       "$ref": "/docs/paths/attachment/index.json"
+    },
+    "/api/v1.0/channel": {
+      "$ref": "/docs/paths/channel/index.json"
+    },
+    "/api/v1.0/tag": {
+      "$ref": "/docs/paths/tag/index.json"
+    },
+    "/api/v1.0/tag/select": {
+      "$ref": "/docs/paths/tag/set.json"
+    },
+    "/api/v1.0/tag/{id}": {
+      "$ref": "/docs/paths/tag/id.json"
+    },
+    "/api/v1.0/conversation": {
+      "$ref": "/docs/paths/conversation/index.json"
+    },
+    "/api/v1.0/conversation/assign": {
+      "$ref": "/docs/paths/conversation/assign.json"
+    },
+    "/api/v1.0/conversation/status": {
+      "$ref": "/docs/paths/conversation/status.json"
+    },
+    "/api/v1.0/message/{conversationId}": {
+      "$ref": "/docs/paths/message/index.json"
+    },
+    "/api/v1.0/merge-contact": {
+      "$ref": "/docs/paths/merge-contact/index.json"
+    },
+    "/api/v1.0/rate": {
+      "$ref": "/docs/paths/rate/index.json"
     }
   },
   "components": {
