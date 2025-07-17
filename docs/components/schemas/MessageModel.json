@@ -29,9 +29,13 @@
           "type": "integer",
           "example": 2
         },
-        "fullName": {
+        "firstName": {
           "type": "string",
-          "example": "John Doe"
+          "example": "John"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "Doe"
         },
         "avatar": {
           "$ref": "./Attachment.json"

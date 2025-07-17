@@ -104,9 +104,13 @@
               "type": "integer",
               "example": 1
             },
-            "fullName": {
+            "firstName": {
               "type": "string",
-              "example": "John Doe"
+              "example": "John"
+            },
+            "lastName": {
+              "type": "string",
+              "example": "Doe"
             }
           }
         },
