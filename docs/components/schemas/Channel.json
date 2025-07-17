@@ -7,14 +7,14 @@
     },
     "name": {
       "type": "string",
-      "example": "whatsapp"
+      "example": "facebook"
     },
     "logo": {
       "type": "object",
       "properties": {
         "name": {
           "type": "string",
-          "example": "whatsapp.png"
+          "example": "facebook"
         },
         "size": {
           "type": "integer",

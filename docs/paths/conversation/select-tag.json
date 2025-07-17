@@ -1,7 +1,7 @@
 {
   "post": {
     "summary": "Select Tag",
-    "tags": ["Tag"],
+    "tags": ["Conversation"],
     "security": [{ "bearerAuth": [] }],
     "requestBody": {
       "required": true,
@@ -10,13 +10,13 @@
           "schema": {
             "type": "object",
             "properties": {
-              "conversationId": {
-                "type": "integer",
-                "example": "1"
-              },
               "tagId": {
                 "type": "integer",
-                "example": "2"
+                "example": 2
+              },
+              "conversationId": {
+                "type": "integer",
+                "example": 1
               }
             }
           }

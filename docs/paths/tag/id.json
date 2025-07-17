@@ -19,7 +19,13 @@
       "content": {
         "application/json": {
           "schema": {
-            "$ref": "../../components/schemas/Tag.json"
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "example": "Support"
+              }
+            }
           }
         }
       }
@@ -74,7 +80,14 @@
     ],
     "responses": {
       "200": {
-        "description": "Tag deleted successfully"
+        "description": "Tag deleted successfully",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../components/schemas/Message.json"
+            }
+          }
+        }
       },
       "404": {
         "description": "Error",

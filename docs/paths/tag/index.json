@@ -9,7 +9,10 @@
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "../../components/schemas/Tag.json"
+              "type": "array",
+              "items": {
+                "$ref": "../../components/schemas/Tag.json"
+              }
             }
           }
         }

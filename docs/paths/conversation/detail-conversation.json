@@ -1,0 +1,40 @@
+{
+  "get": {
+    "summary": "Detail Conversation",
+    "tags": ["Conversation"],
+    "security": [{ "bearerAuth": [] }],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "integer",
+          "example": 1
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "list of Conversations",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../components/schemas/Conversation.json"
+            }
+          }
+        }
+      },
+      "404": {
+        "description": "Not Found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../components/schemas/Message.json"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -11,7 +11,7 @@
       "example": "Hello, how are you?"
     },
     "attachment": {
-      "example": null
+      "$ref": "./Attachment.json"
     },
     "status": {
       "type": "string",

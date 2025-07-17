@@ -32,14 +32,14 @@
     "/api/v1.0/tag": {
       "$ref": "/docs/paths/tag/index.json"
     },
-    "/api/v1.0/tag/select": {
-      "$ref": "/docs/paths/tag/set.json"
-    },
     "/api/v1.0/tag/{id}": {
       "$ref": "/docs/paths/tag/id.json"
     },
     "/api/v1.0/conversation": {
       "$ref": "/docs/paths/conversation/index.json"
+    },
+    "/api/v1.0/conversation/{id}": {
+      "$ref": "/docs/paths/conversation/detail-conversation.json"
     },
     "/api/v1.0/conversation/assign": {
       "$ref": "/docs/paths/conversation/assign.json"
@@ -47,13 +47,16 @@
     "/api/v1.0/conversation/status": {
       "$ref": "/docs/paths/conversation/status.json"
     },
+    "/api/v1.0/conversation/select-tag": {
+      "$ref": "/docs/paths/conversation/select-tag.json"
+    },
     "/api/v1.0/message/{conversationId}": {
       "$ref": "/docs/paths/message/index.json"
     },
     "/api/v1.0/merge-contact": {
       "$ref": "/docs/paths/merge-contact/index.json"
     },
-    "/api/v1.0/rate": {
+    "/api/v1.0/rate/{uid}": {
       "$ref": "/docs/paths/rate/index.json"
     }
   },
