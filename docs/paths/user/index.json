@@ -68,11 +68,15 @@
         "application/json": {
           "schema": {
             "type": "object",
-            "required": ["fullName", "email", "roles", "password"],
+            "required": ["firstName", "lastName", "email", "roles", "password"],
             "properties": {
-              "fullName": {
+              "firstName": {
                 "type": "string",
-                "example": "Jane Doe"
+                "example": "Jane"
+              },
+              "lastName": {
+                "type": "string",
+                "example": "Doe"
               },
               "email": {
                 "type": "string",

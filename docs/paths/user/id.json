@@ -1,199 +1,202 @@
 {
-    "get": {
-      "summary": "Get User Detail",
-      "tags": ["User"],
-      "security": [{ "bearerAuth": [] }],
-      "parameters": [
-        {
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "number",
-            "example": 1
-          }
+  "get": {
+    "summary": "Get User Detail",
+    "tags": ["User"],
+    "security": [{ "bearerAuth": [] }],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "number",
+          "example": 1
         }
-      ],
-      "responses": {
-        "200": {
-          "description": "User detail",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "../../components/schemas/User.json"
-              }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "User detail",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../components/schemas/User.json"
             }
           }
-        },
-        "404": {
-          "description": "User not found",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "../../components/schemas/Message.json"
+        }
+      },
+      "404": {
+        "description": "User not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../components/schemas/Message.json"
+            }
+          }
+        }
+      }
+    }
+  },
+  "put": {
+    "summary": "Update User",
+    "tags": ["User"],
+    "security": [
+      {
+        "bearerAuth": []
+      }
+    ],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "number",
+          "example": 1
+        }
+      }
+    ],
+    "requestBody": {
+      "required": true,
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "required": ["firstName", "lastName", "email", "roles", "password"],
+            "properties": {
+              "firstName": {
+                "type": "string",
+                "example": "Jane"
+              },
+              "lastName": {
+                "type": "string",
+                "example": "Doe"
+              },
+              "email": {
+                "type": "string",
+                "format": "email",
+                "example": "jane@example.com"
+              },
+              "phone": {
+                "type": "string",
+                "example": "08123456789"
+              },
+              "avatar": {
+                "type": "object",
+                "required": ["url", "name", "size", "type"],
+                "properties": {
+                  "url": {
+                    "type": "string",
+                    "format": "uri",
+                    "example": "https://cdn.example.com/uploads/avatar123.webp"
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "avatar123.webp"
+                  },
+                  "size": {
+                    "type": "number",
+                    "example": 204800
+                  },
+                  "type": {
+                    "type": "string",
+                    "example": "image/webp"
+                  }
+                }
+              },
+              "roles": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "example": 3
+                },
+                "minItems": 1
+              },
+              "password": {
+                "type": "string",
+                "minLength": 6,
+                "example": "securePassword123"
               }
             }
           }
         }
       }
     },
-    "put": {
-      "summary": "Update User",
-      "tags": ["User"],
-      "security": [
-        {
-          "bearerAuth": []
-        }
-      ],
-      "parameters": [
-        {
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "number",
-            "example": 1
+    "responses": {
+      "200": {
+        "description": "User created successfully",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../components/schemas/User.json"
+            }
           }
         }
-      ],
-      "requestBody": {
+      },
+      "404": {
+        "description": "Not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../components/schemas/Message.json"
+            }
+          }
+        }
+      },
+      "422": {
+        "description": "Validation Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../components/schemas/ValidationError.json"
+            }
+          }
+        }
+      }
+    }
+  },
+  "delete": {
+    "summary": "Delete User",
+    "tags": ["User"],
+    "security": [{ "bearerAuth": [] }],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
         "required": true,
+        "schema": {
+          "type": "number",
+          "example": 1
+        }
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "User deleted successfully",
         "content": {
           "application/json": {
             "schema": {
               "type": "object",
-              "required": ["fullName", "email", "roles", "password"],
               "properties": {
-                "fullName": {
+                "message": {
                   "type": "string",
-                  "example": "Jane Doe"
-                },
-                "email": {
-                  "type": "string",
-                  "format": "email",
-                  "example": "jane@example.com"
-                },
-                "phone": {
-                  "type": "string",
-                  "example": "08123456789"
-                },
-                "avatar": {
-                  "type": "object",
-                  "required": ["url", "name", "size", "type"],
-                  "properties": {
-                    "url": {
-                      "type": "string",
-                      "format": "uri",
-                      "example": "https://cdn.example.com/uploads/avatar123.webp"
-                    },
-                    "name": {
-                      "type": "string",
-                      "example": "avatar123.webp"
-                    },
-                    "size": {
-                      "type": "number",
-                      "example": 204800
-                    },
-                    "type": {
-                      "type": "string",
-                      "example": "image/webp"
-                    }
-                  }
-                },
-                "roles": {
-                  "type": "array",
-                  "items": {
-                    "type": "number",
-                    "example": 3
-                  },
-                  "minItems": 1
-                },
-                "password": {
-                  "type": "string",
-                  "minLength": 6,
-                  "example": "securePassword123"
+                  "example": "User deleted successfully"
                 }
               }
             }
           }
         }
       },
-      "responses": {
-        "200": {
-          "description": "User created successfully",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "../../components/schemas/User.json"
-              }
-            }
-          }
-        },
-        "404": {
-          "description": "Not found",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "../../components/schemas/Message.json"
-              }
-            }
-          }
-        },
-        "422": {
-          "description": "Validation Error",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "../../components/schemas/ValidationError.json"
-              }
-            }
-          }
-        }
-      }
-    },
-    "delete": {
-      "summary": "Delete User",
-      "tags": ["User"],
-      "security": [{ "bearerAuth": [] }],
-      "parameters": [
-        {
-          "name": "id",
-          "in": "path",
-          "required": true,
-          "schema": {
-            "type": "number",
-            "example": 1
-          }
-        }
-      ],
-      "responses": {
-        "200": {
-          "description": "User deleted successfully",
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "message": {
-                    "type": "string",
-                    "example": "User deleted successfully"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "404": {
-          "description": "User not found",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "../../components/schemas/Error.json"
-              }
+      "404": {
+        "description": "User not found",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../components/schemas/Error.json"
             }
           }
         }
       }
     }
   }
-  
+}
