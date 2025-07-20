@@ -83,25 +83,11 @@
               },
               "avatar": {
                 "type": "object",
-                "required": ["url", "name", "size", "type"],
-                "properties": {
-                  "url": {
-                    "type": "string",
-                    "format": "uri",
-                    "example": "https://cdn.example.com/uploads/avatar123.webp"
-                  },
-                  "name": {
-                    "type": "string",
-                    "example": "avatar123.webp"
-                  },
-                  "size": {
-                    "type": "number",
-                    "example": 204800
-                  },
-                  "type": {
-                    "type": "string",
-                    "example": "image/webp"
-                  }
+                "example": {
+                  "name": "avatar.png",
+                  "size": 1500,
+                  "type": "image/png",
+                  "url": "https://google.com/avatar.png"
                 }
               },
               "roles": {

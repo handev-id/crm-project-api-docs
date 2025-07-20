@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "example": "6283954575"
+    },
+
+    "status": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "example": "active"
+        },
+        "qr": {
+          "type": "string",
+          "example": "qreWRRUE(743ir....."
+        }
+      }
+    }
+  }
+}

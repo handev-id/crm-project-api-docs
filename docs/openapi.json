@@ -58,6 +58,12 @@
     },
     "/api/v1.0/rate/{uid}": {
       "$ref": "/docs/paths/rate/index.json"
+    },
+    "/api/v1.0/whatsapp/status/{id}": {
+      "$ref": "/docs/paths/whatsapp/status.json"
+    },
+    "/api/v1.0/whatsapp/restart/{id}": {
+      "$ref": "/docs/paths/whatsapp/restart.json"
     }
   },
   "components": {
