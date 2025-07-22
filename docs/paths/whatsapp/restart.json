@@ -5,12 +5,12 @@
     "security": [{ "bearerAuth": [] }],
     "parameters": [
       {
-        "name": "id",
+        "name": "whatsappId",
         "in": "path",
         "required": true,
         "schema": {
           "type": "string",
-          "example": "628123456789"
+          "example": "6283836319218"
         }
       }
     ],

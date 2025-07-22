@@ -1,7 +1,7 @@
 {
-  "put": {
-    "summary": "Update Tag",
-    "tags": ["Tag"],
+  "get": {
+    "summary": "Get WhatsApp device Detail",
+    "tags": ["WhatsApp"],
     "security": [{ "bearerAuth": [] }],
     "parameters": [
       {
@@ -9,50 +9,18 @@
         "in": "path",
         "required": true,
         "schema": {
-          "type": "integer",
+          "type": "number",
           "example": 1
         }
       }
     ],
-    "requestBody": {
-      "required": ["name"],
-      "content": {
-        "application/json": {
-          "schema": {
-            "type": "object",
-            "properties": {
-              "name": {
-                "type": "string",
-                "example": "Support",
-                "required": true
-              },
-              "color": {
-                "type": "string",
-                "example": "#FF0000",
-                "required": false
-              }
-            }
-          }
-        }
-      }
-    },
     "responses": {
       "200": {
-        "description": "Tag updated successfully",
+        "description": "WhatsApp detail",
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "../../components/schemas/Tag.json"
-            }
-          }
-        }
-      },
-      "422": {
-        "description": "Validation Error",
-        "content": {
-          "application/json": {
-            "schema": {
-              "$ref": "../../components/schemas/ValidationError.json"
+              "$ref": "../../components/schemas/Whatsapp.json"
             }
           }
         }
@@ -69,9 +37,9 @@
       }
     }
   },
-  "delete": {
-    "summary": "Delete Tag",
-    "tags": ["Tag"],
+  "put": {
+    "summary": "Update WhatsApp device",
+    "tags": ["WhatsApp"],
     "security": [{ "bearerAuth": [] }],
     "parameters": [
       {
@@ -79,14 +47,62 @@
         "in": "path",
         "required": true,
         "schema": {
-          "type": "integer",
+          "type": "number",
+          "example": 1
+        }
+      }
+    ],
+    "requestBody": {
+      "required": ["name", "whatsappId"],
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "example": "Device 1"
+              },
+              "whatsappId": {
+                "type": "string",
+                "example": "6283954575"
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "WhatsApp updated successfully",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../components/schemas/Message.json"
+            }
+          }
+        }
+      }
+    }
+  },
+  "delete": {
+    "summary": "Delete WhatsApp device",
+    "tags": ["WhatsApp"],
+    "security": [{ "bearerAuth": [] }],
+    "parameters": [
+      {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "schema": {
+          "type": "number",
           "example": 1
         }
       }
     ],
     "responses": {
       "200": {
-        "description": "Tag deleted successfully",
+        "description": "WhatsApp deleted successfully",
         "content": {
           "application/json": {
             "schema": {
@@ -96,7 +112,7 @@
         }
       },
       "404": {
-        "description": "Error",
+        "description": "Not Found",
         "content": {
           "application/json": {
             "schema": {

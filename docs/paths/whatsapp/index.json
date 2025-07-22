@@ -1,0 +1,98 @@
+{
+  "get": {
+    "summary": "List WhatsApp Device",
+    "tags": ["WhatsApp"],
+    "security": [{ "bearerAuth": [] }],
+    "parameters": [
+      {
+        "name": "page",
+        "in": "query",
+        "schema": { "type": "integer", "default": 1 },
+        "required": false,
+        "description": "Page number for pagination"
+      },
+      {
+        "name": "limit",
+        "in": "query",
+        "schema": { "type": "integer", "default": 50 },
+        "description": "Number of results per page"
+      },
+      {
+        "name": "search",
+        "in": "query",
+        "schema": { "type": "string" },
+        "description": "Search keyword (name, email, or phone)"
+      }
+    ],
+    "responses": {
+      "200": {
+        "description": "List of WhatsApp Device",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "meta": {
+                  "$ref": "../../components/schemas/Meta.json"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "../../components/schemas/WhatsappDevice.json"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "post": {
+    "summary": "Create WhatsApp Device",
+    "tags": ["WhatsApp"],
+    "security": [{ "bearerAuth": [] }],
+    "requestBody": {
+      "required": ["name", "whatsappId"],
+      "content": {
+        "application/json": {
+          "schema": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "example": "Device 1"
+              },
+              "whatsappId": {
+                "type": "string",
+                "example": "6283954575"
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "200": {
+        "description": "WhatsApp created successfully",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../components/schemas/WhatsappDevice.json"
+            }
+          }
+        }
+      },
+      "422": {
+        "description": "Validation Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "../../components/schemas/ValidationError.json"
+            }
+          }
+        }
+      }
+    }
+  }
+}

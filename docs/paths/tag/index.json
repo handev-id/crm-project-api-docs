@@ -24,7 +24,7 @@
     "tags": ["Tag"],
     "security": [{ "bearerAuth": [] }],
     "requestBody": {
-      "required": true,
+      "required": ["name"],
       "content": {
         "application/json": {
           "schema": {
@@ -34,6 +34,11 @@
                 "type": "string",
                 "example": "Follow Up",
                 "required": true
+              },
+              "color": {
+                "type": "string",
+                "example": "#FF0000",
+                "required": false
               }
             }
           }

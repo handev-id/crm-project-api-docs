@@ -3,7 +3,7 @@
   "properties": {
     "id": {
       "type": "string",
-      "example": "6283954575"
+      "example": "6283836319218"
     },
 
     "status": {
@@ -11,7 +11,7 @@
       "properties": {
         "status": {
           "type": "string",
-          "example": "active"
+          "example": "CONNECTING"
         },
         "qr": {
           "type": "string",

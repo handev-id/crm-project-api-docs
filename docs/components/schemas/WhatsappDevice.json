@@ -7,11 +7,15 @@
     },
     "name": {
       "type": "string",
-      "example": "Follow Up"
+      "example": "Device 1"
     },
-    "color": {
+    "whatsappId": {
       "type": "string",
-      "example": "#FF0000"
+      "example": "6283954575"
+    },
+    "status": {
+      "type": "string",
+      "example": "DISCONNECTED"
     },
     "createdAt": {
       "type": "string",
